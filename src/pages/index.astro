@@ -1,0 +1,19 @@
+---
+import { prisma } from "@/db";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import PlaceCard from "@/components/PlaceCard.astro";
+
+const places = await prisma.place.findMany();
+
+
+---
+
+<MainLayout>
+	<h1 class="text-3xl font-extrabold">Places</h1>
+
+	<!-- TODO: Show places for reviews -->
+	<div class="grid grid-cols-3 gap-4">
+		<PlaceCard />
+	</div>
+</MainLayout>
